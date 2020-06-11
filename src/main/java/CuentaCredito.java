@@ -22,8 +22,11 @@ public class CuentaCredito extends Cuenta{
         montoCredito = monto;
     }
    
-    
-    
+    public CuentaCredito(long num, Calendar fecha, Cliente titular, double monto, double saldoActual) {
+        super(num, fecha, titular);
+        montoCredito = monto;
+        this.saldoActual = saldoActual;
+    }
     
     public String verFechaCorte(){
         return null;

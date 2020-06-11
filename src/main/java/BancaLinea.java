@@ -15,8 +15,8 @@ public class BancaLinea extends javax.swing.JFrame {
      */
     public BancaLinea(Cliente cliente) {
         this.cliente = cliente;
-        initComponents();
-        mostrarDetalles();
+        initComponents(); // ya estaba definido
+        mostrarDetalles(); // agregue 
     }
     
     public void mostrarDetalles(){
@@ -186,6 +186,12 @@ public class BancaLinea extends javax.swing.JFrame {
 
     private void btnDetalleDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleDebitoActionPerformed
         // TODO add your handling code here:
+        // Crear instancia de la ventana 
+        
+        //DetalleCuentaDebito frameDebito = new DetalleCuentaDebito(cuentaDebito);
+        DetalleCuentaDebito frameDebito= new DetalleCuentaDebito();
+        frameDebito.setVisible(true);
+        
     }//GEN-LAST:event_btnDetalleDebitoActionPerformed
 
     private void btnDetalleCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleCreditoActionPerformed
@@ -194,6 +200,7 @@ public class BancaLinea extends javax.swing.JFrame {
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnTransferenciaActionPerformed
 
     /**

@@ -14,11 +14,11 @@ import java.io.Serializable;
  * @author miriampescadorrojas
  */
 public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializable{
-    private long numero;
-    private Calendar fechaContrato;
-    private double saldoActual;
-    private ArrayList<Movimiento> movtos  = new ArrayList();
-    private Cliente titular;
+    protected long numero;
+    protected Calendar fechaContrato;
+    protected double saldoActual;
+    protected ArrayList<Movimiento> movtos  = new ArrayList();
+    protected Cliente titular;
     
 
     public Cuenta(long numero, Calendar fechaContrato, Cliente titular) {

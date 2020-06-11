@@ -28,6 +28,10 @@ public class Principal {
     public static Calendar fecha[] = new Calendar[60];
     public static ArrayList<Cuenta> cuentas = new ArrayList();
 
+    public static ArrayList<Cuenta> getCuentas(){
+        return cuentas;
+    }
+    
     public static void creaInstanciasClientes(){
         /**
          * **************** Instancias de Clientes ***************
@@ -37,6 +41,7 @@ public class Principal {
         clientes[2] = new Cliente(3423738, "Alejandra", "Ramirez", "Ruiz");
         clientes[3] = new Cliente(1034774, "Roberto", "Quiroz", "Patiño");
         clientes[4] = new Cliente(4385950, "Carolina", "Soto", "Alvarez");
+        
         /**
          * ******************** Login (acceso) ***********
          */
@@ -67,6 +72,7 @@ public class Principal {
          */
 
         cuentas.add(new CuentaDebito(67498474, fecha[0], clientes[0], 1500.0));
+        cuentas.get(0).setSaldoActual(2500.0);
         cuentas.add(new CuentaDebito(92367467, fecha[1], clientes[0], 2000.0));
         cuentas.add( new CuentaCredito(15374774, fecha[2], clientes[0], 7000.0));
 
@@ -163,7 +169,7 @@ public class Principal {
             for (int i = 0; i < 5; i++) {
                 if (user.equals(clientes[i].getAcceso().getUsuario())
                         && password.equals(clientes[i].getAcceso().getContrasenia())) {
-                    new BancaLinea(clientes[i]).setVisible(true);
+                    new BancaLinea(clientes[i]).setVisible(true); // mandando una instancia de la clase Cliente
                     //new BancaLinea().setVisible(true)
                     return true;
                 }
@@ -178,6 +184,7 @@ public class Principal {
         
         creaInstanciasClientes();
         creaInstanciasCuentas();
+        //creaInstanciasMovimientos(); // 
         
 
         /*asocia las cuentas y los clientes*/

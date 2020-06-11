@@ -21,7 +21,14 @@ public class CuentaDebito extends Cuenta {
         super(num, fecha, titular);
         saldoMinimo = saldoMin;
     }
+
+    public CuentaDebito(long num, Calendar fecha, Cliente titular, double saldoMin, double saldoActual) {
+        super(num, fecha, titular);
+        saldoMinimo = saldoMin;
+        this.saldoActual = saldoActual;
+    }
    
+    
     
     public ArrayList<String> RevisarPromociones(){
         return null;
