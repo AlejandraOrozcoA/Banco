@@ -71,21 +71,21 @@ public class Principal {
          * **************** Instancias de Cuentas ***************
          */
 
-        cuentas.add(new CuentaDebito(67498474, fecha[0], clientes[0], 1500.0));
-        cuentas.get(0).setSaldoActual(2500.0);
-        cuentas.add(new CuentaDebito(92367467, fecha[1], clientes[0], 2000.0));
-        cuentas.add( new CuentaCredito(15374774, fecha[2], clientes[0], 7000.0));
+        cuentas.add(new CuentaDebito(67498474, fecha[0], clientes[0], 1500.0,2500.0));
+        //cuentas.get(0).setSaldoActual(2500.0);
+        cuentas.add(new CuentaDebito(92367467, fecha[1], clientes[0], 2000.0,3000.0));
+        cuentas.add( new CuentaCredito(15374774, fecha[2], clientes[0], 7000.0,24000.0));
 
-        cuentas.add(new CuentaDebito(27484758, fecha[3], clientes[1], 2500.0));
-        cuentas.add(new CuentaCredito(38934834, fecha[4], clientes[1], 20000.0));
+        cuentas.add(new CuentaDebito(27484758, fecha[3], clientes[1], 2500.0,2500.0));
+        cuentas.add(new CuentaCredito(38934834, fecha[4], clientes[1], 20000.0,2700.0));
 
-        cuentas.add(new CuentaDebito(11536485, fecha[5], clientes[2], 3000.0));
+        cuentas.add(new CuentaDebito(11536485, fecha[5], clientes[2], 3000.0,5000.0));
 
-        cuentas.add(new CuentaDebito(7894894, fecha[6], clientes[3], 3000.0));
-        cuentas.add(new CuentaCredito(482339849, fecha[7], clientes[3], 45000.0));
+        cuentas.add(new CuentaDebito(7894894, fecha[6], clientes[3], 3000.0,7000.0));
+        cuentas.add(new CuentaCredito(482339849, fecha[7], clientes[3], 45000.0,6500.0));
 
-        cuentas.add(new CuentaDebito(66928034, fecha[8], clientes[4], 2500.0));
-        cuentas.add(new CuentaCredito(832674398, fecha[9], clientes[4], 120000.0));
+        cuentas.add(new CuentaDebito(66928034, fecha[8], clientes[4], 2500.0,8500.0));
+        cuentas.add(new CuentaCredito(832674398, fecha[9], clientes[4], 120000.0,7008.0));
     }
     
      public static void creaInstanciasMovimientos(){
