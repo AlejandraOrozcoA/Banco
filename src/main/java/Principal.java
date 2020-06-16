@@ -27,6 +27,7 @@ public class Principal {
     public static Cliente clientes[] = new Cliente[5];
     public static Calendar fecha[] = new Calendar[60];
     public static ArrayList<Cuenta> cuentas = new ArrayList();
+    public static boolean bandera;
 
     public static ArrayList<Cuenta> getCuentas(){
         return cuentas;
@@ -74,18 +75,18 @@ public class Principal {
         cuentas.add(new CuentaDebito(67498474, fecha[0], clientes[0], 1500.0,2500.0));
         //cuentas.get(0).setSaldoActual(2500.0);
         cuentas.add(new CuentaDebito(92367467, fecha[1], clientes[0], 2000.0,3000.0));
-        cuentas.add( new CuentaCredito(15374774, fecha[2], clientes[0], 7000.0,24000.0));
+        cuentas.add( new CuentaCredito(15374774, fecha[2], clientes[0], 7000.0,24000.0, "12/07/2020","12/08/2020"));
 
         cuentas.add(new CuentaDebito(27484758, fecha[3], clientes[1], 2500.0,2500.0));
-        cuentas.add(new CuentaCredito(38934834, fecha[4], clientes[1], 20000.0,2700.0));
+        cuentas.add(new CuentaCredito(38934834, fecha[4], clientes[1], 20000.0,2700.0, "11/06/2020","11/07/2020"));
 
         cuentas.add(new CuentaDebito(11536485, fecha[5], clientes[2], 3000.0,5000.0));
 
         cuentas.add(new CuentaDebito(7894894, fecha[6], clientes[3], 3000.0,7000.0));
-        cuentas.add(new CuentaCredito(482339849, fecha[7], clientes[3], 45000.0,6500.0));
+        cuentas.add(new CuentaCredito(482339849, fecha[7], clientes[3], 45000.0,6500.0, "05/08/2020","05/09/2020"));
 
         cuentas.add(new CuentaDebito(66928034, fecha[8], clientes[4], 2500.0,8500.0));
-        cuentas.add(new CuentaCredito(832674398, fecha[9], clientes[4], 120000.0,7008.0));
+        cuentas.add(new CuentaCredito(832674398, fecha[9], clientes[4], 120000.0,7008.0, "15/06/2020","15/07/2020"));
     }
     
      public static void creaInstanciasMovimientos(){
@@ -96,10 +97,10 @@ public class Principal {
         String conceptosCredito[] = {"aumentar linea de credito", ""};
         String conceptosDebito[] = {"solicita prestamo", ""};
         Movimiento movtos[] = new Movimiento[50];
-        movtos[0] = new Movimiento(TipoMovto.DEPOSITO, fecha[10], "aumentar linea de credito", 1200.0);;
+        movtos[0] = new Movimiento(TipoMovto.DEPOSITO, fecha[10], "aumentar linea de credito", 1200.0,13000.0);;
 
         for (int i = 1; i < 50; i++) {
-            movtos[i] = new Movimiento(TipoMovto.DEPOSITO, fecha[i + 10], conceptosComunes[i % 5], 1200.0);
+            movtos[i] = new Movimiento(TipoMovto.DEPOSITO, fecha[i + 10], conceptosComunes[i % 5], 1200.0, 250*1);
         }
 
         int j = 0;
@@ -195,7 +196,7 @@ public class Principal {
         clientes[4].setCuentas(cuentas.subList(8, 10));
         
         creaInstanciasMovimientos();
-        boolean bandera = false;
+        bandera = false;
         do{
             bandera = acceso();
         }

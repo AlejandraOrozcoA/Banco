@@ -29,14 +29,14 @@ public class Movimiento {
         this.saldoHistorico = saldoHistorico;
     }
     
-    
+    /*
 
     public Movimiento(TipoMovto tipo, Calendar fecha, String concepto, double monto) {
         this.tipo = tipo;
         this.fecha = fecha;
         this.concepto = concepto;
         this.monto = monto;
-    }
+    }/
 
     /**
      * @return the tipo

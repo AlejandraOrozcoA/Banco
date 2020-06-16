@@ -23,10 +23,12 @@ public class CuentaCredito extends Cuenta{
         montoCredito = monto;
     }
    
-    public CuentaCredito(long num, Calendar fecha, Cliente titular, double monto, double saldoActual) {
+    public CuentaCredito(long num, Calendar fecha, Cliente titular, double monto, double saldoActual,String fCorte,String fLimite) {
         super(num, fecha, titular);
         montoCredito = monto;
         this.saldoActual = saldoActual;
+        this.fCorte= fCorte;
+        this.fLimite= fLimite;
     }
 
     public double getMontoCredito() {

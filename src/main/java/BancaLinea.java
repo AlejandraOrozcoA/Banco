@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -87,6 +90,11 @@ public class BancaLinea extends javax.swing.JFrame {
         });
 
         btnCerrarSesion.setText("cerrar sesión");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
 
         btnServicios.setText("Pago servicios ");
 
@@ -209,6 +217,14 @@ public class BancaLinea extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnTransferenciaActionPerformed
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        // TODO add your handling code here:
+        Principal.bandera = false;
+        JOptionPane.showMessageDialog(null, "Se cerro la sesion");
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
