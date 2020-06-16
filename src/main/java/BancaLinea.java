@@ -10,9 +10,7 @@
  */
 public class BancaLinea extends javax.swing.JFrame {
     Cliente cliente;
-    /**
-     * Creates new form BancaLinea
-     */
+    
     public BancaLinea(Cliente cliente) {
         this.cliente = cliente;
         initComponents(); // ya estaba definido
@@ -185,17 +183,29 @@ public class BancaLinea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetalleDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleDebitoActionPerformed
-        // TODO add your handling code here:
-        // Crear instancia de la ventana 
         
-        //DetalleCuentaDebito frameDebito = new DetalleCuentaDebito(cuentaDebito);
+        for(int i= 0 ; i <= cliente.getCuentas().size() ; i++ ){
+            if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasCredito.getSelectedItem())) {
+                CuentaDebito c = (CuentaDebito)cliente.getCuentas().get(i);
+                DetalleCuentaDebito frameDebito = new DetalleCuentaDebito(c);
+                frameDebito.setVisible(true);
+            }
+        }
         DetalleCuentaDebito frameDebito= new DetalleCuentaDebito();
         frameDebito.setVisible(true);
         
     }//GEN-LAST:event_btnDetalleDebitoActionPerformed
 
     private void btnDetalleCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleCreditoActionPerformed
-        // TODO add your handling code here:
+       
+        for(int i= 0 ; i <= cliente.getCuentas().size() ; i++ ){
+            if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasCredito.getSelectedItem())) {
+                CuentaCredito c = (CuentaCredito)cliente.getCuentas().get(i);
+                DetalleCuentaCredito frameCredito = new DetalleCuentaCredito(c);
+                frameCredito.setVisible(true);
+            }
+        }
+        
     }//GEN-LAST:event_btnDetalleCreditoActionPerformed
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed

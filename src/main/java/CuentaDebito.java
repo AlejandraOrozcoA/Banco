@@ -27,6 +27,70 @@ public class CuentaDebito extends Cuenta {
         saldoMinimo = saldoMin;
         this.saldoActual = saldoActual;
     }
+
+    public boolean isInversion() {
+        return inversion;
+    }
+
+    public void setInversion(boolean inversion) {
+        this.inversion = inversion;
+    }
+
+    public boolean isInteresInversion() {
+        return interesInversion;
+    }
+
+    public void setInteresInversion(boolean interesInversion) {
+        this.interesInversion = interesInversion;
+    }
+
+    public double getSaldoMinimo() {
+        return saldoMinimo;
+    }
+
+    public void setSaldoMinimo(double saldoMinimo) {
+        this.saldoMinimo = saldoMinimo;
+    }
+
+    public long getNumero() {
+        return numero;
+    }
+
+    public void setNumero(long numero) {
+        this.numero = numero;
+    }
+
+    public Calendar getFechaContrato() {
+        return fechaContrato;
+    }
+
+    public void setFechaContrato(Calendar fechaContrato) {
+        this.fechaContrato = fechaContrato;
+    }
+
+    public double getSaldoActual() {
+        return saldoActual;
+    }
+
+    public void setSaldoActual(double saldoActual) {
+        this.saldoActual = saldoActual;
+    }
+
+    public ArrayList<Movimiento> getMovtos() {
+        return movtos;
+    }
+
+    public void setMovtos(ArrayList<Movimiento> movtos) {
+        this.movtos = movtos;
+    }
+
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
    
     
     

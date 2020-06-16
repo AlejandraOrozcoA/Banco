@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /*
@@ -27,6 +28,79 @@ public class CuentaCredito extends Cuenta{
         montoCredito = monto;
         this.saldoActual = saldoActual;
     }
+
+    public double getMontoCredito() {
+        return montoCredito;
+    }
+
+    public void setMontoCredito(double montoCredito) {
+        this.montoCredito = montoCredito;
+    }
+
+    public double getInteresAnual() {
+        return interesAnual;
+    }
+
+    public void setInteresAnual(double interesAnual) {
+        this.interesAnual = interesAnual;
+    }
+
+    public String getfCorte() {
+        return fCorte;
+    }
+
+    public void setfCorte(String fCorte) {
+        this.fCorte = fCorte;
+    }
+
+    public String getfLimite() {
+        return fLimite;
+    }
+
+    public void setfLimite(String fLimite) {
+        this.fLimite = fLimite;
+    }
+
+    public long getNumero() {
+        return numero;
+    }
+
+    public void setNumero(long numero) {
+        this.numero = numero;
+    }
+
+    public Calendar getFechaContrato() {
+        return fechaContrato;
+    }
+
+    public void setFechaContrato(Calendar fechaContrato) {
+        this.fechaContrato = fechaContrato;
+    }
+
+    public double getSaldoActual() {
+        return saldoActual;
+    }
+
+    public void setSaldoActual(double saldoActual) {
+        this.saldoActual = saldoActual;
+    }
+
+    public ArrayList<Movimiento> getMovtos() {
+        return movtos;
+    }
+
+    public void setMovtos(ArrayList<Movimiento> movtos) {
+        this.movtos = movtos;
+    }
+
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
+    
     
     public String verFechaCorte(){
         return null;

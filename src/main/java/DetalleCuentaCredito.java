@@ -1,5 +1,7 @@
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +21,43 @@ public class DetalleCuentaCredito extends javax.swing.JFrame {
     public DetalleCuentaCredito() {
         initComponents();
     }
-
+    
+    public DetalleCuentaCredito(CuentaCredito c) {
+        initComponents();
+        mostrarDetalleCredito(c);
+    }
+    
+    public void mostrarDetalleCredito(CuentaCredito c){
+       SimpleDateFormat formato = new SimpleDateFormat("dd'/'MM'/'yyyy");
+       //formato.format(trans.getAseg().getEmisionLicencia().getTime())
+       lblNumCuentaC.setText(String.valueOf(c.getNumero())); 
+       txtCredito.setText(String.valueOf(c.getSaldoActual()));
+       txtInteres.setText(String.valueOf(c.getInteresAnual()));
+       txtCorte.setText(c.getfCorte());
+       txtPago.setText(c.getfLimite());
+       
+      
+       DefaultTableModel modelo = (new DefaultTableModel(
+            null,
+            new String [] {
+                "Fecha", "Tipo", "Descripcion ", "Saldo Historico"
+            }
+        ));
+        Object o[]=null;
+        for (int i = 0; i < c.getMovtos().size() ; i++) {
+            modelo.addRow(o);
+            Movimiento mvto = c.getMovtos().get(i);
+            modelo.setValueAt(formato.format(mvto.getFecha().getTime()), i, 0);
+            modelo.setValueAt(mvto.getTipo(), i, 1);
+            modelo.setValueAt(mvto.getConcepto(), i, 2);
+            modelo.setValueAt(mvto.getSaldoHistorico(), i, 3);
+            
+        }
+       
+        TableMvtos.setModel(modelo);
+        //jScrollPane2.setViewportView(TableMvtos);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,173 +67,162 @@ public class DetalleCuentaCredito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblCuenta = new javax.swing.JLabel();
+        lblNumCuentaC = new javax.swing.JLabel();
+        lblCredito = new javax.swing.JLabel();
+        lblInteres = new javax.swing.JLabel();
+        lblCorte = new javax.swing.JLabel();
+        lblPago = new javax.swing.JLabel();
+        txtCredito = new javax.swing.JTextField();
+        txtInteres = new javax.swing.JTextField();
+        txtCorte = new javax.swing.JTextField();
+        txtPago = new javax.swing.JTextField();
+        lblMvtos = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TableMvtos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Número de cuenta: ");
+        lblCuenta.setText("Número de cuenta: ");
 
-        jLabel2.setText("XXXXXX");
+        lblNumCuentaC.setText("XXXXXX");
 
-        jLabel3.setText("credito:");
-        jLabel3.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                jLabel3CaretPositionChanged(evt);
-            }
+        lblCredito.setText("Credito:");
+        lblCredito.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
-        });
-
-        jLabel4.setText("interes anual:");
-
-        jLabel5.setText("fecha corte:");
-
-        jLabel6.setText("fecha pago:");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Fecha   tipo mov  descripcion   saldo historico\n29 mayo 2020 retiro 1000.0            9200.0\n1 junio 2020   deposito 3500.0       12800.0");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel7.setText("Movimientos");
-
-        jButton1.setText("Transferencias");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                lblCreditoCaretPositionChanged(evt);
             }
         });
+
+        lblInteres.setText("Interes anual:");
+
+        lblCorte.setText("Fecha corte:");
+
+        lblPago.setText("Fecha pago:");
+
+        txtCredito.setText("jTextField1");
+        txtCredito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCreditoActionPerformed(evt);
+            }
+        });
+
+        txtInteres.setText("jTextField2");
+
+        txtCorte.setText("jTextField3");
+
+        txtPago.setText("jTextField4");
+
+        lblMvtos.setText("Movimientos");
+
+        TableMvtos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "Tipo", "Descripcion ", "Saldo Historico"
+            }
+        ));
+        jScrollPane2.setViewportView(TableMvtos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(lblCuenta)
+                .addGap(61, 61, 61)
+                .addComponent(lblNumCuentaC)
+                .addContainerGap(350, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1)
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel2))
+                        .addComponent(lblPago)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addComponent(lblCorte)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCorte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(7, 7, 7)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(52, 52, 52)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(198, 198, 198))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addComponent(jButton1)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                            .addComponent(lblCredito)
+                            .addComponent(lblInteres))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMvtos)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCuenta)
+                    .addComponent(lblNumCuentaC))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addComponent(lblMvtos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCredito)
+                            .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblInteres)
+                            .addComponent(txtInteres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCorte)
+                            .addComponent(txtCorte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                            .addComponent(lblPago)
+                            .addComponent(txtPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabel3CaretPositionChanged
+    private void lblCreditoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblCreditoCaretPositionChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3CaretPositionChanged
+    }//GEN-LAST:event_lblCreditoCaretPositionChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void txtCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreditoActionPerformed
         // TODO add your handling code here:
-        ArrayList<Cuenta> cuentas = Principal.getCuentas();
-        //Factory.getCuentas();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtCreditoActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable TableMvtos;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblCorte;
+    private javax.swing.JLabel lblCredito;
+    private javax.swing.JLabel lblCuenta;
+    private javax.swing.JLabel lblInteres;
+    private javax.swing.JLabel lblMvtos;
+    private javax.swing.JLabel lblNumCuentaC;
+    private javax.swing.JLabel lblPago;
+    private javax.swing.JTextField txtCorte;
+    private javax.swing.JTextField txtCredito;
+    private javax.swing.JTextField txtInteres;
+    private javax.swing.JTextField txtPago;
     // End of variables declaration//GEN-END:variables
 }
