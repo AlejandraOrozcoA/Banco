@@ -29,7 +29,7 @@ public class DetalleCuentaCredito extends javax.swing.JFrame {
     
     public void mostrarDetalleCredito(CuentaCredito c){
        SimpleDateFormat formato = new SimpleDateFormat("dd'/'MM'/'yyyy");
-       //formato.format(trans.getAseg().getEmisionLicencia().getTime())
+       
        lblNumCuentaC.setText(String.valueOf(c.getNumero())); 
        txtCredito.setText(String.valueOf(c.getSaldoActual()));
        txtInteres.setText(String.valueOf(c.getInteresAnual()));
