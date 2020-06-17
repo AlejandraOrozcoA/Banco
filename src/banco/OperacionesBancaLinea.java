@@ -12,6 +12,6 @@ package banco;/*
 public interface OperacionesBancaLinea extends Operaciones {
     void generarEstadoCuenta(int mes, int anio);
     boolean aumentarLineaCredito();
-    void pagoServicios(long numReferencia);
+    boolean pagoServicios(long numReferencia,double cantidad);
     void gestionarCuentas(String tipo);
 }

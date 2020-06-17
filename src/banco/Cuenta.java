@@ -37,11 +37,11 @@ public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializ
    ///aqui va la implementacion de escribir la informacion de los movimientos a un archivo
     
     }
-    
+
     @Override
-    public void pagoServicios(long numReferencia) {
+    public abstract boolean pagoServicios(long numReferencia,double cantidad);
     
-    }
+   
 
     public String verFechaCorte(){
         return null;

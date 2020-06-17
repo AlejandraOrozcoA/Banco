@@ -200,6 +200,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Pago servicios "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnServiciosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTransferencia">
       <Properties>

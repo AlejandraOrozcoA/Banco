@@ -99,6 +99,11 @@ public class BancaLinea extends javax.swing.JFrame {
         });
 
         btnServicios.setText("Pago servicios ");
+        btnServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServiciosActionPerformed(evt);
+            }
+        });
 
         btnTransferencia.setText("Tranferencias");
         btnTransferencia.addActionListener(new java.awt.event.ActionListener() {
@@ -230,6 +235,11 @@ public class BancaLinea extends javax.swing.JFrame {
         //this.setVisible(false);
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServiciosActionPerformed
+        PagoServicios pagoS = new PagoServicios(cliente);
+        pagoS.setVisible(true);
+    }//GEN-LAST:event_btnServiciosActionPerformed
 
     /**
      * @param args the command line arguments
