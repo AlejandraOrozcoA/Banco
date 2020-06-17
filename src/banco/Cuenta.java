@@ -50,7 +50,7 @@ public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializ
     public void pagoServicios(long numReferencia) {
     
     }
-    
+
     public String verFechaCorte(){
         return null;
     }
