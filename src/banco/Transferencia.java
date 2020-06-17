@@ -1,5 +1,6 @@
 package banco;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -156,8 +157,11 @@ public class Transferencia extends javax.swing.JFrame {
                 this.cuenta = cliente.getCuentas().get(i);
             }
         }
+        if (this.cuenta.transferencia(cuentaD, cantidad)) {
+            JOptionPane.showMessageDialog(null, "Transferencia exitosa");
+        }
         
-        this.cuenta.transferencia(cuentaD, cantidad);
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

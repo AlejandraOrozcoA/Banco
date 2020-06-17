@@ -134,7 +134,7 @@ public class CuentaDebito extends Cuenta {
     }
 
     @Override
-    public void transferencia(Cuenta cuentaDestino, double cantidad) {
+    public boolean transferencia(Cuenta cuentaDestino, double cantidad) {
          if (super.retiro(cantidad)) {
             Calendar fecha = Calendar.getInstance();
             TipoMovto mov = TipoMovto.TRANSFERENCIA;
@@ -144,7 +144,9 @@ public class CuentaDebito extends Cuenta {
                 TipoMovto mov2 = TipoMovto.TRANSFERENCIA;
                 Movimiento mvto2 = new Movimiento(mov2 ,fecha, "transferncia de cuenta", cantidad, cuentaDestino.getSaldoActual());
                 cuentaDestino.registrarMovtos(mvto2);
+                return true;
             }
         }
+        return false;
     }
 }

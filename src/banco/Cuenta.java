@@ -3,16 +3,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.io.Serializable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author miriampescadorrojas
- */
 public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializable{
     protected long numero;
     protected Calendar fechaContrato;
@@ -133,6 +124,9 @@ public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializ
     public void setTitular(Cliente titular) {
         this.titular = titular;
     }
+
+    @Override
+    public abstract boolean transferencia(Cuenta cuentaDestino, double cantidad);
     
     
 }
