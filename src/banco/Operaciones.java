@@ -11,7 +11,7 @@ package banco;
  */
 public interface Operaciones {
      boolean retiro(double cantidad);
-     void deposito(double cantidad);
+     boolean deposito(double cantidad);
      public void transferencia(Cuenta cuentaDestino, double cantidad);
     //public void metodo1();
 }

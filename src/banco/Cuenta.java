@@ -36,8 +36,9 @@ public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializ
     }
     
     @Override
-    public void deposito(double cantidad){
+    public boolean deposito(double cantidad){
         setSaldoActual(getSaldoActual() + cantidad);
+        return true;
     }
     
     @Override

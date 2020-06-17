@@ -91,8 +91,8 @@ public class CuentaCredito extends Cuenta{
         return movtos;
     }
 
-    public void setMovtos(ArrayList<Movimiento> movtos) {
-        this.movtos = movtos;
+    public void setMovtos(ArrayList <Movimiento> movtos) {
+        this.movtos= movtos;
     }
 
     public Cliente getTitular() {
@@ -166,7 +166,18 @@ public class CuentaCredito extends Cuenta{
     
     @Override
     public void transferencia(Cuenta cuentaDestino, double cantidad) {
-        super.retiro(cantidad*interesAnual);
-        cuentaDestino.deposito(cantidad);
+        if (super.retiro(cantidad*interesAnual)) {
+            Calendar fecha = Calendar.getInstance();
+            TipoMovto mov = TipoMovto.TRANSFERENCIA;
+            Movimiento mvto = new Movimiento(mov ,fecha, "transferncia de cuenta", cantidad, this.getSaldoActual());
+            this.registrarMovtos(mvto);
+            if (cuentaDestino.deposito(cantidad)) {
+                TipoMovto mov2 = TipoMovto.TRANSFERENCIA;
+                Movimiento mvto2 = new Movimiento(mov2 ,fecha, "transferncia de cuenta", cantidad, cuentaDestino.getSaldoActual());
+                cuentaDestino.registrarMovtos(mvto2);
+            }
+        }
+        
+        
     }
 }
