@@ -1,4 +1,4 @@
-package banco;
+    package banco;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -81,7 +81,7 @@ public class DetalleCuentaCredito extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TableMvtos = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblCuenta.setText("Número de cuenta: ");
 

@@ -72,7 +72,7 @@ public class DetalleCuentaDebito extends javax.swing.JFrame {
         txtSaldoA = new javax.swing.JTextField();
         txtSaldoM = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblCuenta.setText("Número de cuenta");
 
