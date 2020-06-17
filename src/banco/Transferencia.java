@@ -1,3 +1,6 @@
+package banco;
+import java.util.List;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +17,8 @@ public class Transferencia extends javax.swing.JFrame {
      * Creates new form Transferencia
      */
     private Cliente cliente;
+    private Cuenta cuenta;
+    private Cuenta cuentaD;
     public Transferencia() {
         initComponents();
     }
@@ -21,7 +26,19 @@ public class Transferencia extends javax.swing.JFrame {
      public Transferencia(Cliente cliente) {
         initComponents();
         this.cliente = cliente;
+        llenaCombo(cliente.getCuentas());
+        
+        
     }
+     
+    private void llenaCombo(List<Cuenta> cuentas) {
+        for (int i = 0; i < cuentas.size() ; i++) {
+            lblComboA.addItem(Long.toString(cuentas.get(i).getNumero()));
+        }
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +62,12 @@ public class Transferencia extends javax.swing.JFrame {
 
         jLabel1.setText("Transferencia");
 
-        lblComboA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lblComboA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "..." }));
+        lblComboA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblComboAActionPerformed(evt);
+            }
+        });
 
         lblCuentaA.setText("Seleccione su cuenta:");
 
@@ -119,14 +141,29 @@ public class Transferencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*String numeroC = txtDestino.getText();
+          
+        long numCuentaActual = Long.parseLong(lblComboA.getSelectedItem().toString()); 
+        long numCuentaDestino = Long.parseLong(txtDestino.getText());
+        double cantidad = Double.parseDouble(txtMonto.getText());
+        
         for (int i = 0; i < Principal.getCuentas().size() ; i++) {
-            if () {
-                
+            if (Principal.getCuentas().get(i).getNumero() == numCuentaDestino) {
+                this.cuentaD = Principal.getCuentas().get(i);
+            }
+        }   
+        for (int i = 0; i < cliente.getCuentas().size(); i++) {
+            if (cliente.getCuentas().get(i).getNumero() == numCuentaActual) {
+                this.cuenta = cliente.getCuentas().get(i);
             }
         }
-        */
+        
+        this.cuenta.transferencia(cuentaD, cantidad);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lblComboAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblComboAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblComboAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,4 +188,6 @@ public class Transferencia extends javax.swing.JFrame {
     private javax.swing.JTextField txtDestino;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration//GEN-END:variables
+
+   
 }

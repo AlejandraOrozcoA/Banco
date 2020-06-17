@@ -1,3 +1,4 @@
+package banco;
 
 import javax.swing.JOptionPane;
 
@@ -215,6 +216,8 @@ public class BancaLinea extends javax.swing.JFrame {
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
         // TODO add your handling code here:
+        Transferencia transfer = new Transferencia(cliente);
+        transfer.setVisible(true);
         
     }//GEN-LAST:event_btnTransferenciaActionPerformed
 
@@ -222,7 +225,7 @@ public class BancaLinea extends javax.swing.JFrame {
         // TODO add your handling code here:
         Principal.bandera = false;
         JOptionPane.showMessageDialog(null, "Se cerro la sesion");
-        this.setVisible(false);
+        //this.setVisible(false);
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
