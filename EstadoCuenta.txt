@@ -1,0 +1,12 @@
+----------------------Banca en Linea-----------------------------
+
+Numero de cuenta: 	15374774
+Credito: 	24000.0
+Interes Anual: 	0.0
+Fecha corte: 	12/07/2020Fecha pago: 	12/08/2020
+----------------------Ultimos Movimientos-----------------------------
+
+Fecha 		 Tipo  		 Saldo Historico 		 Descripcion
+26/12/2000	DEPOSITO		250.0			retiro en cajero
+08/05/2012	DEPOSITO		250.0			transferencia
+22/12/2009	DEPOSITO		250.0			pago de servicios

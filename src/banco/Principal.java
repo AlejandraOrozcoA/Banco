@@ -92,7 +92,7 @@ public class Principal {
      public static void creaInstanciasMovimientos(){
       /* **************** Instancias de Movimientos ***************
          */
-        String conceptosComunes[] = {"deposito en cajero", "retiro en cajero", "transferencia entre cuentas",
+        String conceptosComunes[] = {"deposito en cajero", "retiro en cajero", "transferencia",
             "pago de servicios", "generar estado de cuenta"};
         String conceptosCredito[] = {"aumentar linea de credito", ""};
         String conceptosDebito[] = {"solicita prestamo", ""};

@@ -120,17 +120,6 @@ public class BancaLinea extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTransferencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnServicios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCerrarSesion)
-                        .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -160,6 +149,17 @@ public class BancaLinea extends javax.swing.JFrame {
                             .addComponent(lblNumCliente)
                             .addComponent(lblNombre))))
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnTransferencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnServicios, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCerrarSesion)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,12 +186,13 @@ public class BancaLinea extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(comboCuentasCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDetalleCredito))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(btnServicios)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnTransferencia)
-                .addGap(5, 5, 5)
-                .addComponent(btnCerrarSesion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCerrarSesion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,7 +200,7 @@ public class BancaLinea extends javax.swing.JFrame {
 
     private void btnDetalleDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleDebitoActionPerformed
 
-        for(int i= 0 ; i <= cliente.getCuentas().size() ; i++ ){
+        for(int i= 0 ; i < cliente.getCuentas().size() ; i++ ){
             if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasDebito.getSelectedItem())) {
                 CuentaDebito c = (CuentaDebito)cliente.getCuentas().get(i);
                 DetalleCuentaDebito frameDebito = new DetalleCuentaDebito(c);
@@ -210,7 +211,7 @@ public class BancaLinea extends javax.swing.JFrame {
 
     private void btnDetalleCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleCreditoActionPerformed
        
-        for(int i= 0 ; i <= cliente.getCuentas().size() ; i++ ){
+        for(int i= 0 ; i < cliente.getCuentas().size() ; i++ ){
             if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasCredito.getSelectedItem())) {
                 CuentaCredito c = (CuentaCredito)cliente.getCuentas().get(i);
                 DetalleCuentaCredito frameCredito = new DetalleCuentaCredito(c);

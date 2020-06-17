@@ -46,6 +46,11 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -56,24 +61,26 @@
                   <Component id="lblCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblNumeroCuentaD" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSaldoA" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMovtos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSaldoA" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblSaldoA" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblMovtos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtSaldoA" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblSaldoM" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtSaldoM" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="176" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="152" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -137,6 +144,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField2"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Solicitar estado de cuenta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

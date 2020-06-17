@@ -160,7 +160,7 @@ public class PagoServicios extends javax.swing.JFrame {
             }
         }
         if (this.cuenta.pagoServicios(ref, monto)) {
-            JOptionPane.showMessageDialog(null, "Transferencia exitosa");
+            JOptionPane.showMessageDialog(null, "Pago exitoso");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -145,11 +145,11 @@ public class CuentaDebito extends Cuenta {
          if (super.retiro(cantidad)) {
             Calendar fecha = Calendar.getInstance();
             TipoMovto mov = TipoMovto.TRANSFERENCIA;
-            Movimiento mvto = new Movimiento(mov ,fecha, "transferncia de cuenta", cantidad, this.getSaldoActual());
+            Movimiento mvto = new Movimiento(mov ,fecha, "transferncia", cantidad, this.getSaldoActual());
             this.registrarMovtos(mvto);
             if (cuentaDestino.deposito(cantidad)) {
                 TipoMovto mov2 = TipoMovto.TRANSFERENCIA;
-                Movimiento mvto2 = new Movimiento(mov2 ,fecha, "transferncia de cuenta", cantidad, cuentaDestino.getSaldoActual());
+                Movimiento mvto2 = new Movimiento(mov2 ,fecha, "transferncia", cantidad, cuentaDestino.getSaldoActual());
                 cuentaDestino.registrarMovtos(mvto2);
                 return true;
             }
