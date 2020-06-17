@@ -1,5 +1,6 @@
 package banco;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -225,6 +226,7 @@ public class BancaLinea extends javax.swing.JFrame {
         // TODO add your handling code here:
         Principal.bandera = false;
         JOptionPane.showMessageDialog(null, "Se cerro la sesion");
+        System.exit(WIDTH);
         //this.setVisible(false);
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
