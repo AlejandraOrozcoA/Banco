@@ -196,4 +196,15 @@ public class CuentaCredito extends Cuenta{
          }
         return false;
     }
+    
+    public boolean pagoTarjeta( double cantidad) {
+        if (super.retiro(cantidad)) {
+            Calendar fecha = Calendar.getInstance();
+            TipoMovto mov = TipoMovto.PAGO_TARJETA;
+            Movimiento mvto = new Movimiento(mov ,fecha, "Pago tarjeta" , cantidad, this.getSaldoActual());
+            this.registrarMovtos(mvto);
+            return true;
+         }
+        return false;
+    }
 }

@@ -14,5 +14,6 @@ public enum TipoMovto {
     DEPOSITO,
     TRANSFERENCIA,
     PAGO_SERVICIO,
+    PAGO_TARJETA,
     
 }

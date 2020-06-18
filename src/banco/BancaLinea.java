@@ -214,7 +214,7 @@ public class BancaLinea extends javax.swing.JFrame {
         for(int i= 0 ; i < cliente.getCuentas().size() ; i++ ){
             if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasCredito.getSelectedItem())) {
                 CuentaCredito c = (CuentaCredito)cliente.getCuentas().get(i);
-                DetalleCuentaCredito frameCredito = new DetalleCuentaCredito(c);
+                DetalleCuentaCredito frameCredito = new DetalleCuentaCredito(c,cliente);
                 frameCredito.setVisible(true);
             }
         }

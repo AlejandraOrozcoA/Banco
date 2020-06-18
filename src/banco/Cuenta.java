@@ -128,7 +128,7 @@ public abstract class Cuenta implements Credito, OperacionesBancaLinea, Serializ
     @Override
     public abstract boolean transferencia(Cuenta cuentaDestino, double cantidad);
     
-    
+    public abstract boolean pagoTarjeta(double cantidad);
 }
 
 

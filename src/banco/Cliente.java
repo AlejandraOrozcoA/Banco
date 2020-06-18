@@ -124,6 +124,9 @@ public class Cliente {
         this.cuentas = cuentas;
     }
 
+    public void setCuenta(Cuenta cuenta) {
+        this.cuentas.add(cuenta);
+    }
     
     /**
      * @return the acceso
