@@ -132,12 +132,14 @@ public class PagrTarjetaC extends javax.swing.JFrame {
         for (int i = 0; i < cliente.getCuentas().size(); i++) {
             if (cliente.getCuentas().get(i).getNumero() == numCuentaActual) {
                 this.cuenta = cliente.getCuentas().get(i);
+                System.out.println(this.cuenta.getNumero());
+                if (this.cuenta.pagoTarjeta(monto)) {
+                    JOptionPane.showMessageDialog(null, "Pago exitoso");
+                }
             }
         }
         
-        if (this.cuenta.pagoTarjeta(monto)) {
-            JOptionPane.showMessageDialog(null, "Pago exitoso");
-        }
+       
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
