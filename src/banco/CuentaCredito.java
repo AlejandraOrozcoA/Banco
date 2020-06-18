@@ -180,6 +180,7 @@ public class CuentaCredito extends Cuenta{
                 cuentaDestino.registrarMovtos(mvto2);
                 return true;
             }
+            
         }
         return false;
         

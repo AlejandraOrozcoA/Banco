@@ -74,11 +74,19 @@ public class Transferencia extends javax.swing.JFrame {
 
         lblDestino.setText("Ingrese la cuenta de destino: ");
 
-        txtDestino.setText("jTextField1");
+        txtDestino.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDestinoKeyTyped(evt);
+            }
+        });
 
         lblMonto.setText("Ingrese el monto: ");
 
-        txtMonto.setText("jTextField2");
+        txtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMontoKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Realizar Tranferencia");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,20 +109,16 @@ public class Transferencia extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(30, 30, 30)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblMonto)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblCuentaA)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblComboA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblDestino)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))))))
-                .addContainerGap(157, Short.MAX_VALUE))
+                                .addComponent(lblDestino)
+                                .addComponent(lblCuentaA)
+                                .addComponent(lblMonto))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtMonto, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDestino)
+                                    .addComponent(lblComboA, 0, 71, Short.MAX_VALUE))))))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,23 +146,33 @@ public class Transferencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          
+        if(txtDestino.getText().isEmpty() ||txtMonto.getText().isEmpty() || lblComboA.getSelectedItem().toString().equals("...")){
+            JOptionPane.showMessageDialog(null, "llene todos los campos");
+        } else{
+            
+        
         long numCuentaActual = Long.parseLong(lblComboA.getSelectedItem().toString()); 
         long numCuentaDestino = Long.parseLong(txtDestino.getText());
         double cantidad = Double.parseDouble(txtMonto.getText());
         
-        for (int i = 0; i < Principal.getCuentas().size() ; i++) {
-            if (Principal.getCuentas().get(i).getNumero() == numCuentaDestino) {
-                this.cuentaD = Principal.getCuentas().get(i);
-            }
-        }   
         for (int i = 0; i < cliente.getCuentas().size(); i++) {
             if (cliente.getCuentas().get(i).getNumero() == numCuentaActual) {
                 this.cuenta = cliente.getCuentas().get(i);
             }
         }
-        if (this.cuenta.transferencia(cuentaD, cantidad)) {
-            JOptionPane.showMessageDialog(null, "Transferencia exitosa");
+        
+        for (int i = 0; i < Principal.getCuentas().size() ; i++) {
+            if (Principal.getCuentas().get(i).getNumero() == numCuentaDestino) {
+                this.cuentaD = Principal.getCuentas().get(i);
+                if (this.cuenta.transferencia(cuentaD, cantidad)) {
+                    JOptionPane.showMessageDialog(null, "Transferencia exitosa");
+                    break;
+                }
+            }else if(i == (Principal.getCuentas().size()-1)){
+                JOptionPane.showMessageDialog(null, "La cuenta no existe");
+            }
+        }   
+        
         }
         
         
@@ -168,6 +182,24 @@ public class Transferencia extends javax.swing.JFrame {
     private void lblComboAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblComboAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblComboAActionPerformed
+
+    private void txtDestinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDestinoKeyTyped
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "ingresar solo numeros");
+        }
+    }//GEN-LAST:event_txtDestinoKeyTyped
+
+    private void txtMontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyTyped
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "ingresar solo numeros");
+        }
+    }//GEN-LAST:event_txtMontoKeyTyped
 
     /**
      * @param args the command line arguments

@@ -105,9 +105,9 @@ public class DetalleCuentaDebito extends javax.swing.JFrame {
 
         lblMovtos.setText("Movimientos ");
 
-        txtSaldoA.setText("jTextField1");
+        txtSaldoA.setEditable(false);
 
-        txtSaldoM.setText("jTextField2");
+        txtSaldoM.setEditable(false);
 
         jButton1.setText("Solicitar estado de cuenta");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -125,14 +125,14 @@ public class DetalleCuentaDebito extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCuenta)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSaldoA)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSaldoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lblSaldoM)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSaldoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(63, 63, 63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSaldoM, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblSaldoA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSaldoA, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNumeroCuentaD)
                     .addComponent(lblMovtos)

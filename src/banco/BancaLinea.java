@@ -199,18 +199,26 @@ public class BancaLinea extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetalleDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleDebitoActionPerformed
-
+      if(comboCuentasDebito.getSelectedItem().toString().equals("...")){
+          JOptionPane.showMessageDialog(null, "Seleccione una cuenta");
+      }else{
+          
+      
         for(int i= 0 ; i < cliente.getCuentas().size() ; i++ ){
             if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasDebito.getSelectedItem())) {
                 CuentaDebito c = (CuentaDebito)cliente.getCuentas().get(i);
                 DetalleCuentaDebito frameDebito = new DetalleCuentaDebito(c);
                 frameDebito.setVisible(true);
             }
-        }      
+        } 
+      }
     }//GEN-LAST:event_btnDetalleDebitoActionPerformed
 
     private void btnDetalleCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalleCreditoActionPerformed
-       
+       if(comboCuentasCredito.getSelectedItem().toString().equals("...")){
+          JOptionPane.showMessageDialog(null, "Seleccione una cuenta");
+      }else{
+          
         for(int i= 0 ; i < cliente.getCuentas().size() ; i++ ){
             if (cliente.getCuentas().get(i).getNumero() == Long.parseLong((String)comboCuentasCredito.getSelectedItem())) {
                 CuentaCredito c = (CuentaCredito)cliente.getCuentas().get(i);
@@ -218,7 +226,7 @@ public class BancaLinea extends javax.swing.JFrame {
                 frameCredito.setVisible(true);
             }
         }
-        
+       } 
     }//GEN-LAST:event_btnDetalleCreditoActionPerformed
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
